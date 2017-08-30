@@ -174,6 +174,7 @@ class HttpUrl (internpaturl.InternPatternUrl, proxysupport.ProxySupport):
         self.aggregate.wait_for_host(self.urlparts[1])
         kwargs = self.get_request_kwargs()
         kwargs["allow_redirects"] = False
+        kwargs["verify"] = False
         self._send_request(request, **kwargs)
 
     def _send_request(self, request, **kwargs):
